@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee House — уютная кофейня в центре города</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDF8F3;
+            color: #2C1810;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Header */
+        header {
+            background-color: #FDF8F3;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(44, 24, 16, 0.05);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #2C1810;
+            letter-spacing: 1px;
+        }
+
+        .phone {
+            color: #2C1810;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 20px;
+            border: 2px solid #D48C59;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .phone:hover {
+            background-color: #D48C59;
+            color: #FDF8F3;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 24, 16, 0.5), rgba(44, 24, 16, 0.5)),
+                        url('https://images.unsplash.com/photo-1509042239860-f550ce711b93?w=1600&q=80') center/cover;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #FDF8F3;
+            padding: 60px 20px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #D48C59;
+            color: #FDF8F3;
+            padding: 16px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 18px;
+            transition: all 0.3s;
+            border: 2px solid #D48C59;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: #FDF8F3;
+            transform: translateY(-2px);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 5%;
+            background-color: #F5EDE3;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(44, 24, 16, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-content h2 {
+            font-size: 42px;
+            margin-bottom: 25px;
+            color: #2C1810;
+        }
+
+        .about-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #5A4A3A;
+        }
+
+        /* Menu Section */
+        .menu {
+            padding: 100px 5%;
+            background-color: #FDF8F3;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 48px;
+            margin-bottom: 60px;
+            color: #2C1810;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #D48C59;
+            margin: 20px auto 0;
+        }
+
+        .menu-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .menu-item {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(44, 24, 16, 0.08);
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(44, 24, 16, 0.15);
+        }
+
+        .menu-item-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .menu-item-content {
+            padding: 25px;
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .menu-item h3 {
+            font-size: 24px;
+            color: #2C1810;
+        }
+
+        .price {
+            background-color: #F5EDE3;
+            color: #D48C59;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .menu-item p {
+            color: #5A4A3A;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: #1A0F09;
+            color: #FDF8F3;
+            padding: 80px 5%;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            font-size: 48px;
+            margin-bottom: 40px;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-details p {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .contact-details strong {
+            color: #D48C59;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .map-placeholder {
+            background-color: #2C1810;
+            border: 2px solid #D48C59;
+            border-radius: 12px;
+            padding: 60px 20px;
+            text-align: center;
+            color: #D48C59;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0F0805;
+            color: #8B7355;
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .about-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">COFFEE HOUSE</div>
+        <a href="tel:+79991234567" class="phone">+7 (999) 123-45-67</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div>
+            <h1>Уютная кофейня в центре города</h1>
+            <p>Свежий кофе, авторские десерты и теплая атмосфера</p>
+            <a href="#menu" class="btn">Посмотреть меню</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80" alt="Интерьер кофейни">
+            </div>
+            <div class="about-content">
+                <h2>Наша история</h2>
+                <p>Мы открылись в 2020 году с одной целью — варить лучший кофе в районе. Используем зерна specialty-класса, молоко от локальных фермеров и готовим десерты каждое утро.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <h2 class="section-title">Популярное</h2>
+        <div class="menu-grid">
+            <!-- Капучино -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600&q=80" alt="Капучино" class="menu-item-image">
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3>Капучино</h3>
+                        <span class="price">250 ₽</span>
+                    </div>
+                    <p>Эспрессо, вспененное молоко, молочная пена</p>
+                </div>
+            </div>
+
+            <!-- Латте -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1570968992193-fd23d5d32618?w=600&q=80" alt="Латте" class="menu-item-image">
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3>Латте</h3>
+                        <span class="price">270 ₽</span>
+                    </div>
+                    <p>Эспрессо и мягкое молоко с тонким слоем пены</p>
+                </div>
+            </div>
+
+            <!-- Раф -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=600&q=80" alt="Раф" class="menu-item-image">
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3>Раф</h3>
+                        <span class="price">290 ₽</span>
+                    </div>
+                    <p>Эспрессо, сливки и ванильный сахар, взбитые вместе</p>
+                </div>
+            </div>
+
+            <!-- Чизкейк -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1524351199678-941a58a3df50?w=600&q=80" alt="Чизкейк" class="menu-item-image">
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3>Чизкейк</h3>
+                        <span class="price">320 ₽</span>
+                    </div>
+                    <p>Нежный сливочный чизкейк с ванилью</p>
+                </div>
+            </div>
+
+            <!-- Круассан -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=80" alt="Круассан" class="menu-item-image">
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3>Круассан</h3>
+                        <span class="price">180 ₽</span>
+                    </div>
+                    <p>Слоеный круассан из французского масла</p>
+                </div>
+            </div>
+
+            <!-- Тирамису -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=600&q=80" alt="Тирамису" class="menu-item-image">
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3>Тирамису</h3>
+                        <span class="price">310 ₽</span>
+                    </div>
+                    <p>Классический десерт с маскарпоне и кофе</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Ждем вас</h2>
+                <div class="contact-details">
+                    <p>
+                        <strong>Адрес</strong>
+                        ул. Ленина, 15
+                    </p>
+                    <p>
+                        <strong>Телефон</strong>
+                        +7 (999) 123-45-67
+                    </p>
+                    <p>
+                        <strong>Часы работы</strong>
+                        Пн-Вс: 8:00 - 22:00
+                    </p>
+                </div>
+            </div>
+            <div class="map-placeholder">
+                <p> Карта проезда</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Coffee House. Все права защищены.</p>
+    </footer>
+
+</body>
+</html>
