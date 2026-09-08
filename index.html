@@ -62,7 +62,7 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(44, 24, 16, 0.5), rgba(44, 24, 16, 0.5)),
-                        url('https://images.unsplash.com/photo-1509042239860-f550ce711b93?w=1600&q=80') center/cover;
+                        url('https://images.unsplash.com/photo-1509042239860-f550ce711b93?w=1600&q=80') center/cover no-repeat;
             min-height: 90vh;
             display: flex;
             align-items: center;
@@ -196,6 +196,7 @@
             height: 250px;
             object-fit: cover;
             display: block;
+            background-color: #F5EDE3;
         }
 
         .menu-item-content {
@@ -316,6 +317,10 @@
 
             .about-image img {
                 height: 300px;
+            }
+            
+            .hero {
+                min-height: 70vh;
             }
         }
     </style>
