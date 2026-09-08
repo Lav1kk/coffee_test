@@ -181,6 +181,8 @@
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(44, 24, 16, 0.08);
             transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
         .menu-item:hover {
@@ -192,22 +194,27 @@
             width: 100%;
             height: 250px;
             object-fit: cover;
+            display: block;
         }
 
         .menu-item-content {
             padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .menu-item-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 12px;
         }
 
         .menu-item h3 {
             font-size: 24px;
             color: #2C1810;
+            margin: 0;
         }
 
         .price {
@@ -217,12 +224,15 @@
             border-radius: 20px;
             font-weight: 600;
             font-size: 16px;
+            white-space: nowrap;
+            margin-left: 10px;
         }
 
         .menu-item p {
             color: #5A4A3A;
             font-size: 15px;
             line-height: 1.6;
+            margin: 0;
         }
 
         /* Contact Section */
@@ -236,8 +246,8 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            grid-template-columns: 1fr;
+            gap: 40px;
             align-items: center;
         }
 
@@ -251,7 +261,7 @@
         }
 
         .contact-details p {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             font-size: 18px;
         }
 
@@ -262,15 +272,6 @@
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 1px;
-        }
-
-        .map-placeholder {
-            background-color: #2C1810;
-            border: 2px solid #D48C59;
-            border-radius: 12px;
-            padding: 60px 20px;
-            text-align: center;
-            color: #D48C59;
         }
 
         /* Footer */
@@ -284,8 +285,7 @@
 
         /* Responsive */
         @media (max-width: 968px) {
-            .about-container,
-            .contact-container {
+            .about-container {
                 grid-template-columns: 1fr;
             }
 
@@ -314,6 +314,14 @@
             header {
                 flex-direction: column;
                 gap: 15px;
+            }
+
+            .menu-item-image {
+                height: 200px;
+            }
+
+            .about-image img {
+                height: 300px;
             }
         }
     </style>
@@ -445,9 +453,6 @@
                         Пн-Вс: 8:00 - 22:00
                     </p>
                 </div>
-            </div>
-            <div class="map-placeholder">
-                <p> Карта проезда</p>
             </div>
         </div>
     </section>
