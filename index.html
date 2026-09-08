@@ -60,7 +60,7 @@
 
         .hero {
             background: linear-gradient(rgba(44, 24, 16, 0.5), rgba(44, 24, 16, 0.5)),
-                        url('https://images.unsplash.com/photo-1509042239860-f550ce711b93?w=1600&q=80') center/cover no-repeat;
+                        url('https://images.unsplash.com/photo-1509042239860-f550ce711b93?w=1600&auto=format&fit=crop&q=80') center/cover no-repeat;
             min-height: 90vh;
             display: flex;
             align-items: center;
@@ -191,8 +191,17 @@
             width: 100%;
             height: 250px;
             object-fit: cover;
+            object-position: center;
             display: block;
             background-color: #F5EDE3;
+            /* Фикс для телефонов: гарантирует видимость даже если картинка грузится медленно */
+            min-height: 250px;
+            aspect-ratio: 4 / 3;
+        }
+
+        /* Точечный фикс для тирамису - показываем верхнюю часть */
+        .menu-item-image--tiramisu {
+            object-position: center 20%;
         }
 
         .menu-item-content {
@@ -306,6 +315,7 @@
 
             .menu-item-image {
                 height: 220px;
+                min-height: 220px;
             }
 
             .about-image img {
@@ -336,7 +346,7 @@
     <section class="about">
         <div class="about-container">
             <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80" alt="Интерьер кофейни">
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&auto=format&fit=crop&q=80" alt="Интерьер кофейни" loading="eager" decoding="async">
             </div>
             <div class="about-content">
                 <h2>Наша история</h2>
@@ -349,7 +359,7 @@
         <h2 class="section-title">Популярное</h2>
         <div class="menu-grid">
             <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600&q=80" alt="Капучино" class="menu-item-image">
+                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600&auto=format&fit=crop&q=80" alt="Капучино" class="menu-item-image" loading="lazy" decoding="async" referrerpolicy="no-referrer">
                 <div class="menu-item-content">
                     <div class="menu-item-header">
                         <h3>Капучино</h3>
@@ -360,7 +370,8 @@
             </div>
 
             <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&q=80" alt="Латте" class="menu-item-image">
+                <!-- ЗАМЕНА: фото латте с ingresso.coffee -->
+                <img src="https://ingresso.coffee/wp-content/uploads/2025/09/Latte-art-dlya-barista.jpg" alt="Латте в кружке" class="menu-item-image" loading="lazy" decoding="async" referrerpolicy="no-referrer">
                 <div class="menu-item-content">
                     <div class="menu-item-header">
                         <h3>Латте</h3>
@@ -371,7 +382,7 @@
             </div>
 
             <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=600&q=80" alt="Раф" class="menu-item-image">
+                <img src="https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=600&auto=format&fit=crop&q=80" alt="Раф" class="menu-item-image" loading="lazy" decoding="async" referrerpolicy="no-referrer">
                 <div class="menu-item-content">
                     <div class="menu-item-header">
                         <h3>Раф</h3>
@@ -382,7 +393,7 @@
             </div>
 
             <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1524351199678-941a58a3df50?w=600&q=80" alt="Чизкейк" class="menu-item-image">
+                <img src="https://images.unsplash.com/photo-1524351199678-941a58a3df50?w=600&auto=format&fit=crop&q=80" alt="Чизкейк" class="menu-item-image" loading="lazy" decoding="async" referrerpolicy="no-referrer">
                 <div class="menu-item-content">
                     <div class="menu-item-header">
                         <h3>Чизкейк</h3>
@@ -393,7 +404,7 @@
             </div>
 
             <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=80" alt="Круассан" class="menu-item-image">
+                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&auto=format&fit=crop&q=80" alt="Круассан" class="menu-item-image" loading="lazy" decoding="async" referrerpolicy="no-referrer">
                 <div class="menu-item-content">
                     <div class="menu-item-header">
                         <h3>Круассан</h3>
@@ -404,7 +415,8 @@
             </div>
 
             <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=600&q=80" alt="Тирамису" class="menu-item-image">
+                <!-- ЗАМЕНА: фото тирамису с fissman.ru -->
+                <img src="https://fissman.ru/upload/dev2fun.imagecompress/webp/resize_cache/iblock/c50/1ngpnjrgffyptj6ilzlkyo1nevzqa7tk/800_800_1/tiramisu.webp" alt="Тирамису" class="menu-item-image menu-item-image--tiramisu" loading="lazy" decoding="async" referrerpolicy="no-referrer">
                 <div class="menu-item-content">
                     <div class="menu-item-header">
                         <h3>Тирамису</h3>
